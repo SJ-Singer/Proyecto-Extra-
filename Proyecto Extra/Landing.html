@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT FASHION - Tienda Oficial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="store-wrapper">
+    
+    <header class="main-header">
+      <div class="logo display-title" style="cursor: pointer;" onclick="window.location.reload();">REFLECT</div>
+      
+      <nav class="nav-actions">
+        <button id="toggle-theme-btn" class="btn-outline nav-btn">🌓 Modo</button>
+        <button id="go-to-profile-btn" class="btn-outline nav-btn">Mi Perfil</button>
+        <button onclick="window.location.href='catalogo.html'" class="btn-outline nav-btn">🛍️ Ver Catálogo</button>
+        
+        <span id="admin-actions-nav" class="hidden" style="display: flex; gap: 0.5rem;">
+          <button onclick="window.location.href='panel_admin.html'" class="btn-outline nav-btn" style="border-color: #f1c40f; color: #f1c40f;">🔧 CRUD Inventario</button>
+          <button onclick="window.location.href='ingresos_admin.html'" class="btn-outline nav-btn" style="border-color: #2ecc71; color: #2ecc71;">📈 Ingresos</button>
+        </span>
+
+        <button id="logout-btn" class="btn-dark nav-btn">Salir</button>
+      </nav>
+    </header>
+
+    <main id="store-content">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h1 class="display-title">REFLECT FASHION</h1>
+          <p>Descubre una experiencia de moda urbana premium diseñada para proyectar tu verdadera identidad.</p>
+          <button id="cta-catalog" class="btn btn-dark" onclick="window.location.href='catalogo.html'">Ir al Catálogo Completo</button>
+        </div>
+      </div>
+
+      <div class="ticker-wrap">
+        <div class="ticker">
+          <span>FASHION ✦ REFLECT FASHION ✦ URBAN STYLE ✦ REFLECT FASHION ✦ FASHION ✦ REFLECT FASHION</span>
+        </div>
+      </div>
+
+      <section class="benefits-section">
+        <div class="benefit-card">
+          <div class="benefit-icon">📦</div>
+          <h3>Envío Premium</h3>
+          <p>Entregas rápidas y seguras con empaques biodegradables.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Pago Seguro</h3>
+          <p>Garantía de protección total en tus transacciones online.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">✨</div>
+          <h3>Calidad Exclusiva</h3>
+          <p>Prendas seleccionadas con los más altos estándares textiles.</p>
+        </div>
+      </section>
+
+      <section class="featured-section">
+        <h2 class="section-title display-title">Our Collection</h2>
+        <div id="featured-products-grid" class="grid-layout">
+          <p>Cargando productos exclusivos de la API...</p>
+        </div>
+      </section>
+
+      <section class="testimonials-section">
+        <h2 class="section-title display-title">Opiniones</h2>
+        <div class="testimonials-container">
+          <div class="testimonial-card">
+            <p>"La calidad de las sudaderas es increíble. El corte urbano es justo lo que buscaba."</p>
+            <h4>- Carlos M.</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>"Excelente atención y el envío llegó antes de lo esperado. Totalmente recomendado."</p>
+            <h4>- Sofía R.</h4>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter-section">
+        <h3>Únete a la Comunidad</h3>
+        <p>Suscríbete para recibir lanzamientos exclusivos y colecciones limitadas.</p>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Tu mejor correo electrónico" required>
+          <button type="submit" class="btn btn-dark">Unirme</button>
+        </form>
+      </section>
+    </main>
+
+    <section id="profile-section" class="auth-section hidden" style="max-width: 500px; margin: 2rem auto;">
+      <h2>Tu Perfil (<span id="profile-role-badge"></span>)</h2>
+      <div class="avatar-container">
+        <img id="profile-avatar-preview" src="https://via.placeholder.com/100" alt="Avatar">
+      </div>
+      <form id="profile-form">
+        <div class="form-group">
+          <label for="profile-name">Nombre</label>
+          <input type="text" id="profile-name" required>
+        </div>
+        <div class="form-group">
+          <label for="profile-avatar">URL del Avatar</label>
+          <input type="url" id="profile-avatar">
+        </div>
+        <div class="form-group">
+          <label for="profile-address">Dirección de Envío</label>
+          <input type="text" id="profile-address">
+        </div>
+        <button type="submit" class="btn btn-dark btn-block">Guardar Cambios</button>
+      </form>
+      <button id="back-to-store-btn" class="btn btn-outline btn-block" style="margin-top: 1rem;">Volver a la Tienda</button>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-links">
+        <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">Políticas de Privacidad</a>
+      </div>
+      <div class="network-status">
+        Estado: <span id="network-badge" class="badge-online">Online</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

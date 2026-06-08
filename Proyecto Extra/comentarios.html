@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT FASHION - Reseñas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="store-wrapper">
+    <header class="main-header">
+      <div class="logo display-title" onclick="window.location.href='Landing.html'">REFLECT</div>
+      <button onclick="window.location.href='catalogo.html'" class="btn-outline nav-btn">Volver al Catálogo</button>
+    </header>
+
+    <main class="feedback-container">
+      <section id="feedback-product-detail" class="product-detail-box">
+        </section>
+
+      <section class="feedback-form-box">
+        <h3>Deja tu Calificación y Comentario</h3>
+        <form id="feedback-form">
+          <div class="form-group">
+            <label>Tu Calificación</label>
+            <div class="star-rating">
+              <input type="radio" name="stars" id="star5" value="5" required><label for="star5">★</label>
+              <input type="radio" name="stars" id="star4" value="4"><label for="star4">★</label>
+              <input type="radio" name="stars" id="star3" value="3"><label for="star3">★</label>
+              <input type="radio" name="stars" id="star2" value="2"><label for="star2">★</label>
+              <input type="radio" name="stars" id="star1" value="1"><label for="star1">★</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tu Opinión Escrita</label>
+            <textarea id="feedback-text" rows="4" required placeholder="Cuéntanos qué tal te pareció la prenda..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Publicar Comentario</button>
+        </form>
+      </section>
+
+      <section class="reviews-list-box">
+        <h3>Opiniones de la Comunidad</h3>
+        <div id="product-reviews-container">
+          </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

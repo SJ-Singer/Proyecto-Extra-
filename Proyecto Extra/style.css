@@ -1,0 +1,443 @@
+/* ==========================================================================
+   CONFIGURACIÓN GENERAL Y VARIABLES (Modo Claro / Oscuro Reutilizable)
+   ========================================================================== */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f4;
+  --bg-dark-block: #111111;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --text-light: #ffffff;
+  --accent: #000000;
+  --border-radius: 12px;
+  --border-radius-sm: 6px;
+  
+  --font-title: 'Impact', 'Arial Black', sans-serif;
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
+  --transition-speed: 0.3s;
+}
+
+.dark-mode {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-dark-block: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-light: #ffffff;
+  --accent: #ffffff;
+}
+
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; height: auto; }
+
+/* COMPONENTES COMPARTIDOS */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-dark { background-color: var(--text-primary); color: var(--bg-primary); }
+.btn-dark:hover { opacity: 0.9; }
+.btn-outline { background-color: transparent; border-color: var(--text-primary); color: var(--text-primary); }
+.btn-outline:hover { background-color: var(--text-primary); color: var(--bg-primary); }
+.btn-block { width: 100%; margin-top: 0.5rem; }
+
+.display-title {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 0.9;
+}
+
+/* ESTILOS DE AUTENTICACIÓN (log_in.html) */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+}
+.auth-box {
+  background-color: var(--bg-primary);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.auth-box .display-title { font-size: 3.5rem; }
+.auth-subtitle { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 2rem; }
+.auth-section h2 { font-size: 1.5rem; margin-bottom: 1.5rem; text-transform: uppercase; }
+
+.form-group { text-align: left; margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.4rem; }
+.form-group input, .form-group select {
+  width: 100%; padding: 0.75rem; border: 1px solid #e0e0e0; border-radius: var(--border-radius-sm);
+  background-color: var(--bg-primary); color: var(--text-primary); font-size: 0.95rem;
+}
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--text-primary); }
+.auth-switch { font-size: 0.85rem; margin-top: 1rem; color: var(--text-secondary); }
+.auth-switch a { color: var(--text-primary); font-weight: 600; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+.avatar-container { width: 90px; height: 90px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; border: 2px solid var(--text-primary); }
+.avatar-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ESTILOS DE LA LANDING PAGE (Landing.html) */
+.store-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.main-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--text-secondary); }
+.main-header .logo { font-size: 2rem; }
+.nav-actions { display: flex; gap: 0.5rem; }
+.nav-btn { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+
+.hero-banner {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200') center/cover no-repeat;
+  color: #fff; padding: 6rem 2rem; text-align: center; border-radius: var(--border-radius); margin: 1.5rem 0;
+}
+.hero-content h1 { font-size: 4rem; margin-bottom: 1rem; color: #fff; }
+.hero-content p { max-width: 600px; margin: 0 auto 1.5rem auto; font-size: 1.1rem; color: #fff; }
+
+.ticker-wrap { background-color: #000; color: #fff; padding: 0.6rem 0; margin-bottom: 2rem; overflow: hidden; white-space: nowrap; }
+.ticker { display: inline-block; animation: marquee 20s linear infinite; font-family: var(--font-title); letter-spacing: 2px; }
+@keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-30%, 0, 0); } }
+
+.benefits-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.benefit-card { background-color: var(--bg-secondary); padding: 1.5rem; border-radius: var(--border-radius); text-align: center; }
+.benefit-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+.section-title { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 1rem 0; }
+
+.product-card { background-color: var(--bg-secondary); border-radius: var(--border-radius); padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; }
+.product-img-holder { background: #fff; padding: 1rem; border-radius: var(--border-radius-sm); height: 200px; display: flex; align-items: center; justify-content: center; }
+.product-img-holder img { max-height: 150px; object-fit: contain; }
+.product-info h4 { font-size: 0.95rem; margin: 0.5rem 0; height: 40px; overflow: hidden; }
+.product-price { font-weight: 700; margin-bottom: 0.5rem; }
+
+.testimonials-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.testimonial-card { border-left: 3px solid var(--text-primary); padding-left: 1rem; font-style: italic; }
+
+.newsletter-section { background-color: var(--bg-dark-block); color: var(--text-light); padding: 3rem 1rem; border-radius: var(--border-radius); text-align: center; margin-bottom: 2rem; }
+.newsletter-section h3, .newsletter-section p { color: #fff; }
+#newsletter-form { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+#newsletter-form input { padding: 0.6rem; border-radius: var(--border-radius-sm); border: 1px solid #ccc; width: 100%; max-width: 300px; }
+
+.main-footer { display: flex; justify-content: space-between; padding: 1.5rem 0; border-top: 1px solid var(--text-secondary); font-size: 0.85rem; margin-top: 2rem; }
+.badge-online { background: #2ecc71; color: #fff; padding: 0.2rem 0.5rem; border-radius: 4px; }
+.badge-offline { background: #e74c3c; color: #fff; padding: 0.2rem 0.5rem; border-radius: 4px; }
+
+.hidden { display: none !important; }
+
+/* ==========================================================================
+   CORRECCIÓN Y REFUERZO PARA EL FOOTER GENERAL (style.css)
+   ========================================================================== */
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem 0;
+  margin-top: 4rem; /* Separa el footer del bloque del newsletter */
+  border-top: 1px solid var(--text-primary);
+  width: 100%;
+  clear: both;
+}
+
+.footer-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.network-status {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+/* Badges de estado de red ultra visibles estilo REFLECT */
+.badge-online {
+  background-color: #2ecc71;
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.badge-offline {
+  background-color: #e74c3c;
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  animation: pulse-offline 1.5s infinite;
+}
+
+@keyframes pulse-offline {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Ajuste responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  .main-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+}
+
+/* ==========================================================================
+   ESTILOS EXTRAS: CATÁLOGO, CARRITO, GESTIÓN CRUD Y MÉDRICAS
+   ========================================================================== */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1.5rem 0; padding: 1rem; background-color: var(--bg-secondary); border-radius: var(--border-radius); }
+.filter-bar input[type="text"], .filter-bar select { padding: 0.5rem 1rem; border-radius: var(--border-radius-sm); border: 1px solid #ccc; background-color: var(--bg-primary); color: var(--text-primary); flex: 1; min-width: 200px; }
+.price-range-container { display: flex; flex-direction: column; font-size: 0.85rem; font-weight: 600; }
+
+/* Carrito Sidebar Flotante */
+.cart-sidebar { position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100vh; background-color: var(--bg-primary); box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 1000; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--text-secondary); padding-bottom: 1rem; }
+.btn-close { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text-primary); }
+#cart-items-container { flex: 1; overflow-y: auto; margin: 1rem 0; padding-right: 0.5rem; }
+.cart-item { display: flex; gap: 1rem; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--bg-secondary); }
+.cart-item img { width: 50px; height: 50px; object-fit: contain; background: white; border-radius: 4px; }
+.cart-item-details { flex: 1; }
+.cart-item-details h5 { font-size: 0.85rem; height: 18px; overflow: hidden; }
+.cart-item-ctrls { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.25rem; }
+.btn-qty { padding: 0.1rem 0.5rem; font-size: 0.8rem; font-weight: bold; }
+
+/* Modales */
+.modal-overlay { position: fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index: 2000; }
+.modal-box { background: var(--bg-primary); padding: 2.5rem; border-radius: var(--border-radius); width: 100%; max-width: 450px; text-align: left; }
+
+/* Panel Admin y Tablas */
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.admin-card { background-color: var(--bg-secondary); padding: 1.5rem; border-radius: var(--border-radius); }
+.table-responsive { overflow-x: auto; margin-top: 1rem; }
+.admin-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+.admin-table th, .admin-table td { padding: 0.75rem; border-bottom: 1px solid #ddd; }
+.admin-table th { background-color: var(--text-primary); color: var(--bg-primary); }
+.admin-table img { width: 40px; height: 40px; object-fit: contain; background: #fff; border-radius: 4px; }
+.btn-action { padding: 0.25rem 0.5rem; font-size: 0.75rem; margin-right: 0.25rem; }
+
+/* Estrellas Interactivas */
+.star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 0.2rem; font-size: 1.8rem; }
+.star-rating input { display: none; }
+.star-rating label { color: #ccc; cursor: pointer; transition: color 0.2s; }
+.star-rating input:checked ~ label, .star-rating label:hover, .star-rating label:hover ~ label { color: #f1c40f; }
+
+/* Dashboard de Analíticas */
+.dashboard-container { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+.metrics-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.metric-card-box { background-color: var(--bg-secondary); padding: 2rem; border-radius: var(--border-radius); text-align: center; }
+.metric-card-box.highlight { background-color: var(--bg-dark-block); color: #fff; }
+.metric-card-box.highlight h4 { color: #aaa; }
+.metric-value { font-size: 2.2rem; font-weight: bold; font-family: var(--font-title); margin-top: 0.5rem; }
+.dashboard-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.top-list { padding-left: 1.2rem; font-weight: 600; line-height: 2; }
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA SPLASH PAGE (index.html)
+   ========================================================================== */
+.splash-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600') center/cover no-repeat;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* Capa oscura para que el texto blanco resalte con elegancia */
+.splash-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+  z-index: 1;
+}
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  animation: fadeInSplash 1s ease-out;
+}
+
+.splash-tagline {
+  font-size: 0.9rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #f1c40f; /* Toque dorado premium */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.splash-logo {
+  font-size: clamp(4rem, 12vw, 9rem); /* Se adapta perfectamente a móviles y PCs gigantes */
+  color: #ffffff;
+  line-height: 0.85;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.splash-subtext {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+/* El botón gigante solicitado */
+.btn-splash-massive {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50px; /* Bordes redondeados modernos */
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s;
+}
+
+.btn-splash-massive:hover {
+  transform: scale(1.08); /* Efecto pop up al pasar el mouse */
+  background-color: #f4f4f4;
+  box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+}
+
+.splash-footer {
+  position: absolute;
+  bottom: 1.5rem;
+  z-index: 2;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Animación sutil de entrada */
+@keyframes fadeInSplash {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   CONTENEDOR DE INVENTARIO CON SCROLL INTERNO (panel_admin.html)
+   ========================================================================== */
+.table-responsive {
+  max-height: 540px;          /* Altura máxima fija para alinearse con el formulario */
+  overflow-y: auto;            /* Activa la barra de desplazamiento vertical si se desborda */
+  overflow-x: hidden;          /* Evita desplazamientos horizontales innecesarios */
+  padding-right: 0.5rem;       /* Espacio de cortesía para que la barra no pise el contenido */
+}
+
+/* --- Personalización de la barra de desplazamiento (Estilo Premium Minimalista) --- */
+.table-responsive::-webkit-scrollbar {
+  width: 6px;                  /* Grosor sutil de la barrita */
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: var(--bg-primary); /* Fondo del canal igual al fondo de la app */
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: var(--text-primary); /* El color del control coincide con el texto (blanco o negro según el modo) */
+  border-radius: 4px;
+  border: 1px solid var(--bg-primary);
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;                /* Pequeño cambio visual al pasar el mouse por encima */
+}
+
+/* ==========================================================================
+   ESTILOS PREMIUM PARA EL MÓDULO DE OPINIONES
+   ========================================================================== */
+#feedback-form .form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+#feedback-text {
+  width: 100%;
+  min-height: 120px;
+  background-color: #111111; /* Fondo oscuro integrado con el tema */
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical; /* Permite estirar hacia abajo, pero no hacia los lados */
+  transition: border-color 0.2s;
+}
+
+#feedback-text:focus {
+  outline: none;
+  border-color: #ffffff; /* Brillo blanco al escribir */
+}
+
+/* Contenedor de opiniones de la comunidad */
+#product-reviews-container {
+  margin-top: 2rem;
+}
+
+.review-item {
+  background-color: #111111;
+  border: 1px solid #222222;
+  border-left: 4px solid #ffffff; /* Detalle minimalista a la izquierda */
+  padding: 1.2rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}

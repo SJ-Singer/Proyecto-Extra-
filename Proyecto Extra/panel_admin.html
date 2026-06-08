@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT - Panel Admin (CRUD)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="store-wrapper">
+    <header class="main-header">
+      <div class="logo display-title">ADMIN PANEL</div>
+      <nav class="nav-actions">
+        <button onclick="window.location.href='ingresos_admin.html'" class="btn-outline nav-btn">📈 Métricas e Ingresos</button>
+        <button onclick="window.location.href='Landing.html'" class="btn-dark nav-btn">⬅ Volver ao Inicio</button>
+      </nav>
+    </header>
+
+    <main class="admin-grid">
+      <section class="admin-card">
+        <h3 id="form-action-title">Agregar Novo Produto</h3>
+        <form id="crud-form">
+          <input type="hidden" id="crud-id">
+          <div class="form-group">
+            <label>Título do Produto</label>
+            <input type="text" id="crud-title" required placeholder="Ex: Sudadera Reflect Oversized">
+          </div>
+          <div class="form-group">
+            <label>Prezo ($)</label>
+            <input type="number" step="0.01" id="crud-price" required placeholder="49.99">
+          </div>
+          <div class="form-group">
+            <label>Categoría</label>
+            <select id="crud-category" required>
+              <option value="men's clothing">Ropa de Hombre</option>
+              <option value="women's clothing">Ropa de Mujer</option>
+              <option value="jewelery">Joyería</option>
+              <option value="electronics">Electrónica</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>URL da Imaxe</label>
+            <input type="url" id="crud-image" required placeholder="https://enlace.com/imagen.jpg">
+          </div>
+          <button type="submit" id="crud-submit-btn" class="btn btn-dark btn-block">Guardar Producto</button>
+          <button type="button" id="crud-cancel-btn" class="btn btn-outline btn-block hidden">Cancelar Edición</button>
+        </form>
+      </section>
+
+      <section class="admin-card">
+        <h3>Inventario Local Activo</h3>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Imaxe</th>
+                <th>Produto</th>
+                <th>Prezo</th>
+                <th>Acciónes</th>
+              </tr>
+            </thead>
+            <tbody id="admin-inventory-table">
+              </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

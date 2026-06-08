@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT - Panel de Ingresos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="store-wrapper">
+    <header class="main-header">
+      <div class="logo display-title">METRICS & ANALYTICS</div>
+      <button onclick="window.location.href='panel_admin.html'" class="btn-outline nav-btn">Volver al CRUD</button>
+    </header>
+
+    <main class="dashboard-container">
+      <section class="metrics-summary-grid">
+        <div class="metric-card-box highlight">
+          <h4>Total Ingresos Generados</h4>
+          <p id="metric-total-earnings" class="metric-value">$0.00</p>
+        </div>
+        <div class="metric-card-box">
+          <h4>Usuarios Registrados</h4>
+          <p id="metric-total-users" class="metric-value">0</p>
+        </div>
+        <div class="metric-card-box">
+          <h4>Órdenes Procesadas</h4>
+          <p id="metric-total-orders" class="metric-value">0</p>
+        </div>
+      </section>
+
+      <section class="dashboard-details">
+        <div class="admin-card">
+          <h3>Top Productos Más Vendidos</h3>
+          <ol id="top-products-list" class="top-list">
+            </ol>
+        </div>
+
+        <div class="admin-card">
+          <h3>Historial Reciente de Ventas</h3>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID Orden</th>
+                  <th>Cliente</th>
+                  <th>Total Cobrado</th>
+                </tr>
+              </thead>
+              <tbody id="sales-history-rows">
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

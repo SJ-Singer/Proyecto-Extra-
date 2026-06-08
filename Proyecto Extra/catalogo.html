@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT FASHION - Catálogo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="store-wrapper">
+    <header class="main-header">
+      <div class="logo display-title" style="cursor:pointer;" onclick="window.location.href='Landing.html'">REFLECT</div>
+      <nav class="nav-actions">
+        <button id="toggle-theme-btn" class="btn-outline nav-btn" hidden>🌓 Modo</button>
+        <button onclick="window.location.href='Landing.html'" class="btn-outline nav-btn">Inicio</button>
+        <button id="open-cart-btn" class="btn-dark nav-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+      </nav>
+    </header>
+
+    <section class="filter-bar">
+      <input type="text" id="search-input" placeholder="Buscar productos en tiempo real...">
+      <select id="category-filter">
+        <option value="all">Todas las Categorías</option>
+        <option value="men's clothing">Ropa de Hombre</option>
+        <option value="women's clothing">Ropa de Mujer</option>
+        <option value="jewelery">Joyería</option>
+        <option value="electronics">Electrónica</option>
+      </select>
+      <div class="price-range-container">
+        <label for="price-filter">Precio Máx: $<span id="price-val">300</span></label>
+        <input type="range" id="price-filter" min="0" max="500" value="300">
+      </div>
+    </section>
+
+    <main>
+      <h2 class="section-title display-title">Catálogo Completo</h2>
+      <div id="full-catalog-grid" class="grid-layout">
+        </div>
+    </main>
+
+    <aside id="cart-modal" class="cart-sidebar hidden">
+      <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button id="close-cart-btn" class="btn-close">&times;</button>
+      </div>
+      <div id="cart-items-container">
+        </div>
+      <div class="cart-summary">
+        <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+        <p><strong>Total: <span id="cart-total">$0.00</span></strong></p>
+        <button id="go-checkout-btn" class="btn btn-dark btn-block">Proceder al Pago</button>
+      </div>
+    </aside>
+
+    <div id="checkout-modal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <h3>Pasarela de Pago Simulada</h3>
+        <form id="checkout-form">
+          <div class="form-group">
+            <label>Nombre del Titular</label>
+            <input type="text" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label>Número de Tarjeta</label>
+            <input type="text" maxlength="16" required placeholder="4152••••••••••••">
+          </div>
+          <div class="form-group" style="display:flex; gap:0.5rem;">
+            <div>
+              <label>Expiración</label>
+              <input type="text" placeholder="MM/AA" required maxlength="5">
+            </div>
+            <div>
+              <label>CVV</label>
+              <input type="password" placeholder="•••" required maxlength="3">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Validar y Pagar Orden</button>
+          <button type="button" id="close-checkout-btn" class="btn btn-outline btn-block">Cancelar</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-links"><a href="#">Instagram</a> | <a href="#">Políticas</a></div>
+      <div class="network-status">Estado: <span id="network-badge" class="badge-online">Online</span></div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

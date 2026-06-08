@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT FASHION - Autenticación</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="auth-container">
+    <div class="auth-box">
+      <h1 class="display-title">REFLECT</h1>
+      <p class="auth-subtitle">FASHION & IDENTITY</p>
+      
+      <section id="login-section" class="auth-section">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Correo Electrónico</label>
+            <input type="email" id="login-email" required placeholder="tu@correo.com">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Entrar</button>
+        </form>
+        <p class="auth-switch">¿No tienes cuenta? <a href="#" id="go-to-register">Regístrate aquí</a></p>
+        <p class="auth-switch"><a href="#" id="go-to-recovery">¿Olvidaste tu contraseña?</a></p>
+      </section>
+
+      <section id="register-section" class="auth-section hidden">
+        <h2>Crear Cuenta</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="reg-name">Nombre Completo</label>
+            <input type="text" id="reg-name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Correo Electrónico</label>
+            <input type="email" id="reg-email" required placeholder="tu@correo.com">
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Contraseña</label>
+            <input type="password" id="reg-password" required placeholder="Mínimo 6 caracteres">
+          </div>
+          <div class="form-group">
+            <label for="reg-role">Rol de Usuario</label>
+            <select id="reg-role" required>
+              <option value="Cliente">Cliente</option>
+              <option value="Administrador">Administrador</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Registrarse</button>
+        </form>
+        <p class="auth-switch">¿Ya tienes cuenta? <a href="#" id="go-to-login">Inicia sesión</a></p>
+      </section>
+
+      <section id="recovery-section" class="auth-section hidden">
+        <h2>Recuperar Contraseña</h2>
+        <form id="recovery-form">
+          <div class="form-group">
+            <label for="recover-email">Introduce tu Correo Electrónico</label>
+            <input type="email" id="recover-email" required placeholder="tu@correo.com">
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Restablecer Contraseña</button>
+        </form>
+        <p class="auth-switch"><a href="#" id="back-to-login-from-recover">Volver al inicio de sesión</a></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
